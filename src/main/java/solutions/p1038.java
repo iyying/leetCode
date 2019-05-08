@@ -1,9 +1,9 @@
-package p1038;
+package solutions;
 
 import utils.BinarySearchTree;
 import utils.TreeNode;
 
-class Solution {
+class p1038 {
     private static BinarySearchTree binarySearchTree;
     private static int rightSum = 0;
 

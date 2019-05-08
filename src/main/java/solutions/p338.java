@@ -1,6 +1,6 @@
-package p338;
+package solutions;
 
-public class Solution {
+public class p338 {
 
     public static void main(String[] args) {
         int[] result = countBits(5);
