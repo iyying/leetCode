@@ -1,24 +1,17 @@
 package solutions;
 
+import java.util.Stack;
+
 public class p739 {
     public static int[] dailyTemperatures(int[] T) {
         int[] output = new int[T.length];
-
-        for (int oIndex = 0; oIndex < output.length; oIndex++) {
-            int num = 0;
-            for (int iIndex = oIndex + 1; iIndex < T.length; iIndex++) {
-
-                num++;
-
-                if(T[oIndex] < T[iIndex]) {
-                    break;
-                }
-
-                if(iIndex == output.length - 1) {
-                    num = 0;
-                }
+        Stack<Integer> stack = new Stack<>();
+        stack.push(0);
+        for (int oIndex = 1; oIndex < output.length; oIndex++) {
+            while (!stack.empty() && T[oIndex] > T[stack.peek()]) {
+                output[stack.peek()] = oIndex - stack.pop();
             }
-            output[oIndex] = num;
+            stack.push(oIndex);
         }
 
         return output;
